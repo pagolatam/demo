@@ -9,6 +9,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
     create_table :line_items do |t|
       t.references :product
       t.references :order
+      t.decimal :price, precision: 10, scale: 2, null: false
       t.integer :quantity
     end
 
@@ -17,6 +18,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.string :token
       t.string :customer_email
       t.decimal :amount, precision: 10, scale: 2, null: false
+      t.timestamps
     end
 
     create_table :payments do |t|

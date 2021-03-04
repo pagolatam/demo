@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_200200) do
   create_table "line_items", force: :cascade do |t|
     t.bigint "product_id"
     t.bigint "order_id"
+    t.decimal "price", precision: 10, scale: 2, null: false
     t.integer "quantity"
     t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
@@ -28,6 +29,8 @@ ActiveRecord::Schema.define(version: 2021_03_04_200200) do
     t.string "token"
     t.string "customer_email"
     t.decimal "amount", precision: 10, scale: 2, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "payments", force: :cascade do |t|
