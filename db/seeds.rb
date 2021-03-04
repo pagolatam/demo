@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+10.times do |i|
+  Product.create(
+    name: Faker::Game.title,
+    description: "#{Faker::Game.genre} @#{Faker::Game.platform}",
+    price: Faker::Number.number(digits: 5)
+  )
+end
