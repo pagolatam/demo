@@ -1,0 +1,11 @@
+<p>Order ID: <%= @order.token %></p>
+
+<% @order.line_items.each do |line_item| %>
+  <p><%= line_item.product.name %> <%= line_item.quantity %> x <%= number_to_currency line_item.price %> </p>
+<% end %>
+
+<br>
+<p>Total amount: <%= number_to_currency @order.amount %></p>
+
+<br>
+<p><%= link_to "PURCHASE (continue to payment)", purchase_order_path(id: @order.token) %></p>

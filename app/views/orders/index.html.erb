@@ -1,0 +1,3 @@
+<% @orders.each do |order| %>
+<p><%= link_to "#{order.token}", order_path(id: order.token)%> <%= order.customer_email %> <%= number_to_currency order.amount %></p>
+<% end %>

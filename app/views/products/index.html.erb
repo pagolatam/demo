@@ -1,0 +1,7 @@
+<% @products.each do |product| %>
+  <p><%= product.name %></p>
+  <p><%= product.description %></p>
+  <p><%= number_to_currency product.price %></p>
+  <p><%= link_to 'BUY', add_product_orders_path(product_id: product.id) %></p>
+  <br>
+<% end %>
