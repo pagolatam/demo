@@ -5,7 +5,8 @@ class Order < ApplicationRecord
   has_many :line_items
   has_many :products, through: :line_items
 
-  validates :token, :amount, :customer_email, presence: true
+  validates :token, :amount, :customer_email, :status, presence: true
+
   enum status: { pending: 0, confirmed: 1 }
   before_validation :set_amount
   before_create :set_pending

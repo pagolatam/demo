@@ -7,8 +7,7 @@
 <br>
 <p>Total amount: <%= number_to_currency @order.amount %></p>
 
-<hr>
+<br>
+<p><%= link_to "PURCHASE PAGOLATAM", purchase_order_path(id: @order.token, pm_id: 1) %></p>
 
-<% @order.payments.each do |payment| %>
-  <%= payment.token %> <%= number_to_currency payment.amount %> <%= payment.status %>
-<% end %>
+<p><%= link_to "PURCHASE WEBPAY", purchase_order_path(id: @order.token, pm_id: 2) %></p>

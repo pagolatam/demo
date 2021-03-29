@@ -10,7 +10,7 @@ module PagolatamDemo
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-
+    config.hosts << "4d12dc8a9d5e.ngrok.io"
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

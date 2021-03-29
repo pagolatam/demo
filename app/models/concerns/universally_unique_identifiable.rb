@@ -6,6 +6,6 @@ module UniversallyUniqueIdentifiable
   end
 
   def set_token
-    self.token ||= SecureRandom.uuid
+    self.token ||= SecureRandom.uuid.last(10)
   end
 end

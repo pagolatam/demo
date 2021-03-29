@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_200200) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "status"
+    t.integer "status"
     t.string "token"
     t.string "customer_email"
     t.decimal "amount", precision: 10, scale: 2, null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_200200) do
 
   create_table "payments", force: :cascade do |t|
     t.bigint "order_id"
-    t.string "status"
+    t.integer "status"
     t.string "token"
     t.decimal "amount", precision: 10, scale: 2, null: false
     t.datetime "created_at", precision: 6, null: false

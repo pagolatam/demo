@@ -14,7 +14,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
     end
 
     create_table :orders do |t|
-      t.string :status
+      t.integer :status
       t.string :token
       t.string :customer_email
       t.decimal :amount, precision: 10, scale: 2, null: false
@@ -23,7 +23,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
 
     create_table :payments do |t|
       t.references :order
-      t.string :status
+      t.integer :status
       t.string :token
       t.decimal :amount, precision: 10, scale: 2, null: false
       t.timestamps
