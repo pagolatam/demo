@@ -5,10 +5,9 @@
 
 <p>te redireccionaremos automáticamente al comprobante de tu orden</p>
 
-<script src="">
+<script>
   window.setTimeout(function(){
-        // Move to a new location or you can do something else
-        window.location.href = <%= order_url(id: @order.token) %>;
+        window.location.href = "<%= order_url(id: @order.token) %>";
 
       }, 5000);
 </script>
