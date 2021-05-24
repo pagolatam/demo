@@ -30,9 +30,9 @@ class OrdersController < ApplicationController
       'pl_currency': 'CLP',
       'pl_order_id': @order.token,
       'pl_customer_email': @order.customer_email,
-      'pl_url_complete': success_order_url(id: @order.token),
-      'pl_url_cancel': checkout_order_url(id: @order.token),
-      'pl_url_callback': notify_pagolatam_index_url,
+      'pl_complete_url': success_order_url(id: @order.token),
+      'pl_cancel_url': checkout_order_url(id: @order.token),
+      'pl_callback_url': notify_pagolatam_index_url,
       'pl_shop_country': 'CL',
       'pl_session_id': payment.token
     }
