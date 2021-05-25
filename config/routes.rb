@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
     member do
       get :checkout
-      get :purchase
+      post :purchase
       get :success
     end
   end

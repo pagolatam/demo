@@ -21,6 +21,8 @@ class OrdersController < ApplicationController
   def success; end
 
   def purchase
+    puts request.referer
+
     payment = @order.payments.create(amount: @order.amount)
     payment_methods = ['pagolatam', 'webpayplus']
 
@@ -46,9 +48,11 @@ class OrdersController < ApplicationController
       body: data.merge('pl_signature': signature).to_json
     })
 
-    response.code == 200 && response&.parsed_response['urls'].present? && response&.parsed_response['urls'][payment_methods[params['pm_id'].to_i - 1]]
-    redirect_to response&.parsed_response['urls'][payment_methods[params['pm_id'].to_i - 1]]
-
+    if response.code == 200 && response&.parsed_response['urls'].present? && response&.parsed_response['urls'][payment_methods[params['pm_id'].to_i - 1]]
+      redirect_to response&.parsed_response['urls'][payment_methods[params['pm_id'].to_i - 1]]
+    else
+      redirect_to action: :checkout, id: @order.token
+    end
   end
 
   private
